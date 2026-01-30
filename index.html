@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  bottom: -30px;
+  font-size: 20px;
+  animation: floatUp 8s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Main card */
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 30px;
+  padding: 25px;
+  width: 85%;
+  max-width: 380px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  animation: popIn 1.2s ease;
+}
+
+@keyframes popIn {
+  from {
+    transform: translate(-50%, -60%) scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Teddy */
+.teddy {
+  font-size: 90px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Speech bubble */
+.bubble {
+  background: #ffe6ef;
+  border-radius: 22px;
+  padding: 15px;
+  margin-top: 10px;
+  font-size: 15px;
+  color: #444;
+  position: relative;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 12px;
+  border-style: solid;
+  border-color: transparent transparent #ffe6ef transparent;
+}
+
+/* Button */
+button {
+  margin-top: 18px;
+  background: #ff6f91;
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255,111,145,0.45);
+  transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+  background: #ff4f7a;
+  transform: scale(1.05);
+}
+
+/* Hidden message */
+#loveMsg {
+  display: none;
+  margin-top: 15px;
+  font-family: 'Pacifico', cursive;
+  color: #ff4f7a;
+  font-size: 19px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="teddy">🧸</div>
+
+  <div class="bubble">
+    Hey my love 💕<br>
+    Please stay hydrated 💧<br>
+    Take your medicines on time 💊<br>
+    Rest well and don’t worry 🌸<br>
+    You will be okay very soon 🤍
+  </div>
+
+  <button onclick="showLove()">Tap for a teddy hug 🧸💖</button>
+
+  <div id="loveMsg">
+    I love you so much 🥺💗<br>
+    I’m always with you.<br>
+    Get well soon, my love 🌷
+  </div>
+</div>
+
+<script>
+// Floating hearts
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 18 + 18 + "px";
+  heart.style.animationDuration = Math.random() * 4 + 6 + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 8000);
+}
+
+setInterval(createHeart, 300);
+
+// Show love message
+function showLove() {
+  document.getElementById("loveMsg").style.display = "block";
+}
+</script>
+
+</body>
+</html>
